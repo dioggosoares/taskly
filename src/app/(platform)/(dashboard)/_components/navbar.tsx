@@ -21,7 +21,7 @@ export function NavBar() {
           variant="primary"
           className="hidden h-auto rounded-sm px-2 py-1.5 md:block"
         >
-          Create
+          Criar Quadro
         </Button>
         <Button
           size="icon"
