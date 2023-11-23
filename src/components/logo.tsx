@@ -9,7 +9,7 @@ export function Logo() {
           src="/logo.png"
           alt="logo"
           width={80}
-          height={45}
+          height={35}
           className="w-20"
         />
       </div>
