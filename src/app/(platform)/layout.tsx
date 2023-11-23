@@ -20,14 +20,14 @@ export default function PlatformLayout({
             'border-red-500 hover:border-red-500 transition-colors duration-150 ease-linear focus:border-red-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-ring focus-visible:ring-offset-2',
           formButtonPrimary:
             'bg-green-500 hover:bg-green-600 text-sm normal-case transition-colors duration-150 ease-linear focus:border-zinc-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-500 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50',
-          card: 'shadow-2xl bg-white rounded-md',
+          card: 'shadow-2xl bg-zinc-50 rounded-md',
           formFieldInput:
             'rounded-md border border-gray-100 hover:border-green-500 transition-colors duration-150 ease-linear focus:border-green-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-500 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50',
         },
         layout: {
           showOptionalFields: true,
           socialButtonsPlacement: 'top',
-          socialButtonsVariant: 'auto',
+          socialButtonsVariant: 'blockButton',
         },
       }}
     >

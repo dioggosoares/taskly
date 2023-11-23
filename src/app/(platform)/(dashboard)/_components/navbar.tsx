@@ -3,6 +3,7 @@ import { OrganizationSwitcher, UserButton } from '@clerk/nextjs'
 
 import { Logo } from '@/components/logo'
 import { Button } from '@/components/ui/button'
+import { MobileSidebar } from './mobile-sidebar'
 
 export function NavBar() {
   return (
@@ -10,7 +11,7 @@ export function NavBar() {
       className="fixed top-0 z-50 flex h-14 w-full items-center border-b bg-white
       px-4 shadow-sm"
     >
-      {/* TODO: Mobile sidebar */}
+      <MobileSidebar />
       <div className="flex items-center gap-x-4">
         <div className="hidden md:flex">
           <Logo />
@@ -22,7 +23,11 @@ export function NavBar() {
         >
           Create
         </Button>
-        <Button size="icon" variant="primary" className="rounded-sm md:hidden">
+        <Button
+          size="icon"
+          variant="primary"
+          className="h-9 rounded-sm md:hidden"
+        >
           <Plus className="h-6 w-6" />
         </Button>
       </div>
