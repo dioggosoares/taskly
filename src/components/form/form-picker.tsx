@@ -68,6 +68,7 @@ export function FormPicker({ id, errors }: FormPickerProps) {
         {images.map((image) => (
           <button
             key={image.id}
+            type="button"
             className={cn(
               `group relative aspect-video cursor-pointer overflow-hidden rounded-sm
               bg-muted transition hover:opacity-75`,
@@ -77,7 +78,6 @@ export function FormPicker({ id, errors }: FormPickerProps) {
               if (pending) return
               setSelectedImageId(image.id)
             }}
-            type="button"
           >
             <input
               type="radio"
@@ -85,7 +85,7 @@ export function FormPicker({ id, errors }: FormPickerProps) {
               name={id}
               className="hidden"
               checked={selectedImageId === image.id}
-              // onChange={() => {}}
+              onChange={() => {}}
               disabled={pending}
               value={`${image.id}|${image.urls.thumb}|${image.urls.full}|${image.links.html}|${image.user.name}`}
             />
