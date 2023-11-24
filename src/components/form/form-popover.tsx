@@ -2,6 +2,7 @@
 
 import { ReactNode } from 'react'
 import { X } from 'lucide-react'
+import { toast } from 'sonner'
 
 import {
   Popover,
@@ -15,9 +16,8 @@ import { createBoard } from '@/actions/create-board'
 
 import { FormInput } from './form-input'
 import { FormSubmit } from './form-submit'
+import { FormPicker } from './form-picker'
 import { Button } from '../ui/button'
-import error from 'next/error'
-import { toast } from 'sonner'
 
 interface FormPopoverProps {
   children: ReactNode
@@ -72,6 +72,7 @@ export function FormPopover({
 
         <form action={onSubmit} className="space-y-4">
           <div className="space-y-4">
+            <FormPicker id="image" errors={fieldErrors} />
             <FormInput
               id="title"
               label="Título do quadro"
