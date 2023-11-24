@@ -9,6 +9,7 @@ import { unsplash } from '@/lib/unsplash'
 import { cn } from '@/lib/utils'
 import Link from 'next/link'
 import { defaultImages } from '@/constants/images'
+import { FormErrors } from './form-errors'
 
 interface FormPickerProps {
   id: string
@@ -105,6 +106,7 @@ export function FormPicker({ id, errors }: FormPickerProps) {
           </button>
         ))}
       </div>
+      <FormErrors id="image" errors={errors} />
     </div>
   )
 }
