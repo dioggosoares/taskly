@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google'
 import { siteConfig } from '@/config/metaData'
 
 import './styles/globals.css'
+import '../lib/dayjs'
 
 const inter = Inter({ subsets: ['latin'] })
 

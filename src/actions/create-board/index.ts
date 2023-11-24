@@ -38,7 +38,6 @@ async function handler(data: InputType): Promise<ReturnType> {
   let board
 
   try {
-    throw new Error('fdfds')
     board = await db.board.create({
       data: {
         title,

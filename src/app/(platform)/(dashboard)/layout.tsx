@@ -6,7 +6,7 @@ export default function DashboarLayout({
   children: React.ReactNode
 }) {
   return (
-    <div className="h-full">
+    <div className="h-full bg-purple-300/10">
       <NavBar />
       {children}
     </div>

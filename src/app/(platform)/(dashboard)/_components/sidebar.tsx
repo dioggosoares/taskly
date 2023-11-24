@@ -75,8 +75,9 @@ export function Sidebar({
           <Button
             size="sm"
             variant="primary"
-            className="flex h-auto w-full rounded-sm px-2 py-1.5 md:hidden"
+            className="flex h-auto w-full gap-2 rounded-sm px-2 py-1.5 md:hidden"
           >
+            <Plus className="h-4 w-4" />
             Criar Quadro
           </Button>
         </FormPopover>

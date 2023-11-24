@@ -1,4 +1,5 @@
 import { OrganizationSwitcher, UserButton } from '@clerk/nextjs'
+import { Plus } from 'lucide-react'
 
 import { Logo } from '@/components/logo'
 import { Button } from '@/components/ui/button'
@@ -16,18 +17,19 @@ export function NavBar() {
         <div className="hidden md:flex">
           <Logo />
         </div>
+      </div>
+
+      <div className="ml-auto flex items-center gap-x-4">
         <FormPopover align="start" side="bottom" sideOffset={18}>
           <Button
             size="sm"
             variant="primary"
-            className="hidden h-auto rounded-sm px-2 py-1.5 md:block"
+            className="hidden h-auto gap-2 rounded-sm px-2 py-1.5 md:flex"
           >
-            Criar Quadro
+            <Plus className="h-4 w-4" />
+            <span className="font-semibold">Criar quadro</span>
           </Button>
         </FormPopover>
-      </div>
-
-      <div className="ml-auto flex items-center gap-x-2">
         <OrganizationSwitcher
           hidePersonal
           afterCreateOrganizationUrl="/organization/:id"
