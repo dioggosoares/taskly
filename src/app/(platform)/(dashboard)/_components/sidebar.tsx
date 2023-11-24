@@ -70,7 +70,7 @@ export function Sidebar({
   return (
     <>
       <div className="mb-1 flex items-center text-xs font-medium">
-        <span className="pl-4">Workspaces</span>
+        <span className="pl-4 font-semibold">Workspaces</span>
         <Button
           type="button"
           variant="ghost"

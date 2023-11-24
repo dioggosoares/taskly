@@ -9,8 +9,9 @@ export function Logo() {
           src="/logo.png"
           alt="logo"
           width={80}
-          height={35}
+          height={45}
           className="w-20"
+          priority
         />
       </div>
     </Link>
