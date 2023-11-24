@@ -10,6 +10,8 @@ import { cn } from '@/lib/utils'
 import Link from 'next/link'
 import { defaultImages } from '@/constants/images'
 import { FormErrors } from './form-errors'
+import { toast } from 'sonner'
+import { FEEDBACK_MESSAGES } from '@/constants/general'
 
 interface FormPickerProps {
   id: string
@@ -36,7 +38,7 @@ export function FormPicker({ id, errors }: FormPickerProps) {
           const newImages = result.response as Array<Record<string, any>>
           setImages(newImages)
         } else {
-          console.log('Falha ao obter imagens do Unsplash.')
+          toast.error(FEEDBACK_MESSAGES.FAILED_OBTAINING_IMAGES)
         }
       } catch (error) {
         console.log(error)
@@ -60,7 +62,7 @@ export function FormPicker({ id, errors }: FormPickerProps) {
   return (
     <div className="relative flex flex-col gap-3">
       <h3 className="text-xs font-semibold text-neutral-700">
-        Escolha o fundo do quadro
+        Escolha o fundo
       </h3>
       <div className="mb-2 grid grid-cols-3 gap-2">
         {images.map((image) => (
@@ -75,6 +77,7 @@ export function FormPicker({ id, errors }: FormPickerProps) {
               if (pending) return
               setSelectedImageId(image.id)
             }}
+            type="button"
           >
             <input
               type="radio"
@@ -82,6 +85,7 @@ export function FormPicker({ id, errors }: FormPickerProps) {
               name={id}
               className="hidden"
               checked={selectedImageId === image.id}
+              // onChange={() => {}}
               disabled={pending}
               value={`${image.id}|${image.urls.thumb}|${image.urls.full}|${image.links.html}|${image.user.name}`}
             />
@@ -92,7 +96,7 @@ export function FormPicker({ id, errors }: FormPickerProps) {
               fill
             />
             {selectedImageId === image.id && (
-              <div className="absolute inset-y-0 flex h-full w-full items-center justify-center bg-black/30">
+              <div className="absolute inset-y-0 flex h-full w-full items-center justify-center bg-black/50">
                 <Check className="h-4 w-4 text-white" />
               </div>
             )}

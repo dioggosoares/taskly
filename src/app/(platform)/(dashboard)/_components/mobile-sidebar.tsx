@@ -41,8 +41,10 @@ export function MobileSidebar() {
         <Menu className="h-4 w-4" />
       </Button>
       <Sheet open={isOpen} onOpenChange={onClose}>
-        <SheetContent side="left" className="p-2 pt-10">
-          <Sidebar storageKey={STORAGE_KEYS.EXPANDED_ACCORDION_MOBIL_SIDEBAR} />
+        <SheetContent side="left" className="p-2 pt-12">
+          <Sidebar
+            storageKey={STORAGE_KEYS.EXPANDED_ACCORDION_MOBILE_SIDEBAR}
+          />
         </SheetContent>
       </Sheet>
     </>

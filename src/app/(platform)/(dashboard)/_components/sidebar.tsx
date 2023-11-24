@@ -11,6 +11,7 @@ import { Skeleton } from '@/components/ui/skeleton'
 import { Accordion } from '@/components/ui/accordion'
 import { NavItem, Organization } from './nav-item'
 import { STORAGE_KEYS } from '@/constants/general'
+import { FormPopover } from '@/components/form/form-popover'
 
 interface SidebarProps {
   storageKey?: string
@@ -69,19 +70,30 @@ export function Sidebar({
 
   return (
     <>
-      <div className="mb-1 flex items-center text-xs font-medium">
-        <span className="pl-4 font-semibold">Workspaces</span>
-        <Button
-          type="button"
-          variant="ghost"
-          size="icon"
-          className="ml-auto"
-          asChild
-        >
-          <Link href="/select-org">
-            <Plus className="h-4 w-4" />
-          </Link>
-        </Button>
+      <div className="mb-1 flex flex-col gap-2">
+        <FormPopover sideOffset={18}>
+          <Button
+            size="sm"
+            variant="primary"
+            className="flex h-auto w-full rounded-sm px-2 py-1.5 md:hidden"
+          >
+            Criar Quadro
+          </Button>
+        </FormPopover>
+        <div className="mb-1 flex items-center text-xs font-medium">
+          <span className="pl-4 font-semibold">Workspaces</span>
+          <Button
+            type="button"
+            variant="ghost"
+            size="icon"
+            className="ml-auto"
+            asChild
+          >
+            <Link href="/select-org">
+              <Plus className="h-4 w-4" />
+            </Link>
+          </Button>
+        </div>
       </div>
       <Accordion
         type="multiple"

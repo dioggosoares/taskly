@@ -7,29 +7,52 @@ import { db } from '@/lib/db'
 import { CreateBoard } from './schema'
 import { InputType, ReturnType } from './types'
 import { createSafeAction } from '@/lib/create-safe-action'
+import { FEEDBACK_MESSAGES } from '@/constants/general'
 
 async function handler(data: InputType): Promise<ReturnType> {
-  const { userId } = auth()
+  const { userId, orgId } = auth()
 
-  if (!userId) {
+  if (!userId || !orgId) {
     return {
       error: 'Não Autorizado',
     }
   }
 
-  const { title } = data
+  const { title, image } = data
+
+  const [imageId, imageThumbUrl, imageFullUrl, imageLinkHTML, imageUserName] =
+    image.split('|')
+
+  if (
+    !imageId ||
+    !imageThumbUrl ||
+    !imageFullUrl ||
+    !imageLinkHTML ||
+    !imageUserName
+  ) {
+    return {
+      error: FEEDBACK_MESSAGES.MISSING_FIELDS_CREATED_BOARD,
+    }
+  }
 
   let board
 
   try {
+    throw new Error('fdfds')
     board = await db.board.create({
       data: {
         title,
+        orgId: orgId ?? '',
+        imageId,
+        imageThumbUrl,
+        imageFullUrl,
+        imageUserName,
+        imageLinkHTML,
       },
     })
   } catch (error) {
     return {
-      error: 'Falha ao criar o quadro',
+      error: FEEDBACK_MESSAGES.ERROR_CREATED_BOARD,
     }
   }
 

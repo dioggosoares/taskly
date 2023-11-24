@@ -9,7 +9,7 @@ export default function PlatformLayout({
 }) {
   return (
     <ClerkProvider localization={ptBR}>
-      <Toaster />
+      <Toaster position="bottom-center" richColors />
       {children}
     </ClerkProvider>
   )
