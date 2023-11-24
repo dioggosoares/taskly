@@ -94,7 +94,7 @@ export function NavItem({
               size="sm"
               onClick={() => onClick(route.href)}
               className={cn(
-                `mb-1 w-full justify-start pl-10 font-normal`,
+                `mb-1 w-full justify-start pl-10 font-normal hover:bg-neutral-200/60`,
                 pathname === route.href && 'bg-purple-600/10 text-purple-700',
               )}
               variant="ghost"

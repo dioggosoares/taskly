@@ -4,15 +4,17 @@ import { db } from '@/lib/db'
 import { OrgInfo } from './org-info'
 
 interface CoverBoardProps {
+  orgId: string
   boardId: string
 }
 
-export async function CoverBoard({ boardId }: CoverBoardProps) {
+export async function CoverBoard({ boardId, orgId }: CoverBoardProps) {
   if (!boardId) return null
 
   const imageBoard = await db.board.findUnique({
     where: {
       id: boardId,
+      orgId,
     },
   })
 
@@ -20,7 +22,7 @@ export async function CoverBoard({ boardId }: CoverBoardProps) {
 
   return (
     <div
-      className="relative flex h-64 w-full rounded-lg bg-neutral-300 bg-cover
+      className="relative flex h-64 w-full rounded-lg bg-neutral-200/50 bg-cover
       bg-center bg-no-repeat"
       style={{ backgroundImage: `url(${imageBoard.imageFullUrl})` }}
     >
@@ -31,7 +33,7 @@ export async function CoverBoard({ boardId }: CoverBoardProps) {
           </button>
         </div>
 
-        <div className="flex p-4">
+        <div className="flex p-6">
           <OrgInfo />
         </div>
       </div>

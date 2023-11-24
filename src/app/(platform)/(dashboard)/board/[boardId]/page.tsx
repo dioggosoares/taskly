@@ -17,7 +17,7 @@ export default function Board({ params }: BoardProps) {
 
   return (
     <div className="flex flex-1 p-8">
-      <CoverBoard boardId={boardId} />
+      <CoverBoard orgId={orgId} boardId={boardId} />
     </div>
   )
 }
