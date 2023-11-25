@@ -12,7 +12,12 @@ export function NavBar() {
         className="mx-auto flex w-full items-center justify-between
         md:max-w-screen-2xl"
       >
-        <Logo />
+        <div className="flex items-center gap-x-4">
+          <Logo />
+          <div className="hidden rounded-sm bg-pink-100 px-2 py-1 md:flex">
+            <span className="text-xs font-semibold text-pink-600">Beta</span>
+          </div>
+        </div>
 
         <div
           className="flex w-full items-center justify-between space-x-4 md:block
