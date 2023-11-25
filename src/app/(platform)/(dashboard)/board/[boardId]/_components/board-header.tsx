@@ -13,12 +13,12 @@ interface BoardHeaderProps {
 
 export function BoardHeader({ board }: BoardHeaderProps) {
   return (
-    <div className="flex w-full items-center justify-between gap-4">
-      <div className="flex w-full items-center gap-4">
-        <div className="ml-4 flex w-auto items-center">
+    <div className="flex items-center justify-between gap-4">
+      <div className="flex items-center gap-4">
+        <div className="ml-4 flex items-center">
           <button
-            className="-ml-4 flex h-12 w-12 items-center justify-center
-            overflow-hidden rounded-full bg-neutral-300 pt-6 shadow-md shadow-neutral-600 ring-2 ring-zinc-50"
+            className="-ml-4 flex h-12 w-12 items-center justify-center overflow-hidden
+            rounded-full bg-neutral-300 pt-6 shadow-md shadow-neutral-600 ring-2 ring-zinc-50"
           >
             <Image
               src="https://images.unsplash.com/photo-1599566147214-ce487862ea4f?q=80&w=3347&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -28,8 +28,8 @@ export function BoardHeader({ board }: BoardHeaderProps) {
             />
           </button>
           <button
-            className="-ml-4 flex h-12 w-12 items-center justify-center
-          overflow-hidden rounded-full bg-neutral-300 pt-6 shadow-md shadow-neutral-600 ring-2 ring-zinc-50"
+            className="-ml-4 flex h-12 w-12 items-center justify-center overflow-hidden
+            rounded-full bg-neutral-300 pt-6 shadow-md shadow-neutral-600 ring-2 ring-zinc-50"
           >
             <Image
               src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=3387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -39,8 +39,8 @@ export function BoardHeader({ board }: BoardHeaderProps) {
             />
           </button>
           <button
-            className="-ml-4 flex h-12 w-12 items-center justify-center
-            overflow-hidden rounded-full bg-neutral-300 pt-6 shadow-md shadow-neutral-600 ring-2 ring-zinc-50"
+            className="-ml-4 flex h-12 w-12 items-center justify-center overflow-hidden
+            rounded-full bg-neutral-300 pt-6 shadow-md shadow-neutral-600 ring-2 ring-zinc-50"
           >
             <Image
               src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?q=80&w=3387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -50,8 +50,8 @@ export function BoardHeader({ board }: BoardHeaderProps) {
             />
           </button>
           <button
-            className="-ml-4 flex h-12 w-12 items-center justify-center
-            overflow-hidden rounded-full bg-neutral-300 shadow-md shadow-neutral-600 ring-2 ring-zinc-50"
+            className="-ml-4 flex h-12 w-12 items-center justify-center overflow-hidden
+            rounded-full bg-neutral-300 shadow-md shadow-neutral-600 ring-2 ring-zinc-50"
           >
             <Image
               src="https://images.unsplash.com/photo-1600481176431-47ad2ab2745d?q=80&w=3387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -61,18 +61,20 @@ export function BoardHeader({ board }: BoardHeaderProps) {
             />
           </button>
         </div>
-        <span className="font-medium text-neutral-600">
+        <span className="hidden font-medium text-neutral-600 md:block">
           Membros desse quadro
         </span>
       </div>
 
-      <div className="flex w-full items-center justify-end gap-5">
-        <Button size="sm" className="gap-3">
-          Filtros
-          <SlidersHorizontal className="h-4 w-4" />
-        </Button>
+      <div className="flex items-center justify-end gap-5">
+        <div className="hidden items-center gap-5 md:flex">
+          <Button size="sm" className="gap-3">
+            Filtros
+            <SlidersHorizontal className="h-4 w-4" />
+          </Button>
 
-        <BoardViewMenu />
+          <BoardViewMenu />
+        </div>
 
         <Hint
           description="Administrador do Quadro"

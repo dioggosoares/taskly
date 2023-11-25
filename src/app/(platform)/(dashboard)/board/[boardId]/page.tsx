@@ -1,9 +1,10 @@
 import { redirect } from 'next/navigation'
 import { auth } from '@clerk/nextjs'
 
+import { db } from '@/lib/db'
 import { CoverBoard } from './_components/cover-board'
 import { BoardHeader } from './_components/board-header'
-import { db } from '@/lib/db'
+import { ListContainer } from './_components/list-container'
 
 interface BoardProps {
   params: {
@@ -28,10 +29,32 @@ export default async function Board({ params }: BoardProps) {
 
   if (!board) return
 
+  const lists = await db.list.findMany({
+    where: {
+      boardId,
+      board: {
+        orgId,
+      },
+    },
+    include: {
+      cards: {
+        orderBy: {
+          order: 'asc',
+        },
+      },
+    },
+    orderBy: {
+      order: 'asc',
+    },
+  })
+
   return (
     <div className="flex flex-1 flex-col gap-9 p-8">
       <CoverBoard board={board} />
       <BoardHeader board={board} />
+      <div className="h-full overflow-x-auto p-4">
+        <ListContainer boardId={boardId} data={lists} />
+      </div>
     </div>
   )
 }

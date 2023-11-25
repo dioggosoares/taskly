@@ -13,8 +13,8 @@ export async function CoverBoard({ board }: CoverBoardProps) {
 
   return (
     <div
-      className="relative flex h-64 w-full overflow-hidden rounded-xl bg-neutral-200/50
-      bg-cover bg-center bg-no-repeat"
+      className="relative flex min-h-[16rem] overflow-hidden rounded-xl
+      bg-neutral-200/50 bg-cover bg-center bg-no-repeat"
       style={{ backgroundImage: `url(${board.imageFullUrl})` }}
     >
       <div className="flex w-full flex-col justify-between">

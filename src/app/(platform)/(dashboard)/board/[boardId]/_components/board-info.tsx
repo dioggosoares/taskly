@@ -29,7 +29,6 @@ export function BoardInfo({ board }: BoardInfoProps) {
         />
       </figure>
 
-      {/* <h1 className="text-4xl font-semibold text-zinc-50">{board}</h1> */}
       <BoardTitleForm board={board} />
     </div>
   )
