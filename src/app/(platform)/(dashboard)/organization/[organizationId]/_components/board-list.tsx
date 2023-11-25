@@ -37,7 +37,7 @@ export async function BoardList() {
             key={board.id}
             href={`/board/${board.id}`}
             className="group relative aspect-video h-full w-full overflow-hidden
-            rounded-sm bg-purple-600 bg-cover bg-center bg-no-repeat p-2"
+            rounded-sm bg-neutral-200/70 bg-cover bg-center bg-no-repeat p-2"
             style={{ backgroundImage: `url(${board.imageThumbUrl})` }}
           >
             <div className="absolute inset-0 bg-black/30 transition group-hover:bg-black/40" />

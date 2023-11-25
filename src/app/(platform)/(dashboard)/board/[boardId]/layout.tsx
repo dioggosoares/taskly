@@ -9,7 +9,7 @@ export default function BoardLayout({
     <div className="mx-auto h-full bg-purple-300/10">
       <main className="relative mx-auto h-full pt-14">
         <div className="flex">
-          <div className="hidden w-96 shrink-0 md:block">
+          <div className="hidden w-96 shrink-0 lg:block">
             <BoardSidebar />
           </div>
           {children}

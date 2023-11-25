@@ -38,7 +38,7 @@ export function Info({ isPro }: InfoProps) {
             })}
           >
             <span
-              className={cn('font-semibold text-purple-700', {
+              className={cn('font-semibold text-purple-600', {
                 'text-pink-600': isPro,
               })}
             >

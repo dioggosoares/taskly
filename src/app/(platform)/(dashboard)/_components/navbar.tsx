@@ -17,6 +17,9 @@ export function NavBar() {
         <div className="hidden md:flex">
           <Logo />
         </div>
+        <div className="rounded-sm bg-pink-100 px-2 pb-[.1875rem]">
+          <span className="text-xs font-semibold text-pink-600">Beta</span>
+        </div>
       </div>
 
       <div className="ml-auto flex items-center gap-x-4">

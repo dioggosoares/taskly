@@ -81,7 +81,7 @@ export function Sidebar({
           </Button>
         </FormPopover>
         <div className="mb-1 flex items-center text-xs font-medium">
-          <span className="pl-4 font-semibold">Workspaces</span>
+          <span className="pl-4 font-semibold">Áreas de trabalho</span>
           <Button
             type="button"
             variant="ghost"

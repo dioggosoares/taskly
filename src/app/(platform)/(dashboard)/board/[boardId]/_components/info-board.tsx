@@ -12,11 +12,11 @@ export function InfoBoard() {
   }
 
   return (
-    <div className="flex w-full flex-col items-center gap-3 p-6">
+    <div className="flex w-full flex-col items-center gap-3 px-6 pt-6">
       <figure className="relative h-[4.5rem] w-[4.5rem]">
         <Image
           fill
-          src={organization!.imageUrl!}
+          src={organization!.imageUrl}
           alt="Organization"
           className="rounded-md object-cover"
         />
@@ -28,7 +28,7 @@ export function InfoBoard() {
         {user?.primaryEmailAddress?.emailAddress}
       </span>
 
-      <span className="text-purple-600">@{user?.firstName}</span>
+      <span className="font-semibold text-purple-600">@{user?.firstName}</span>
     </div>
   )
 }

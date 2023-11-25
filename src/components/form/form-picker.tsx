@@ -61,9 +61,7 @@ export function FormPicker({ id, errors }: FormPickerProps) {
 
   return (
     <div className="relative flex flex-col gap-3">
-      <h3 className="text-xs font-semibold text-neutral-700">
-        Escolha o fundo
-      </h3>
+      <h3 className="text-xs font-semibold text-neutral-700">Escolha a capa</h3>
       <div className="mb-2 grid grid-cols-3 gap-2">
         {images.map((image) => (
           <button
