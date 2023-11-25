@@ -2,6 +2,7 @@
 
 import { MoreVertical, X } from 'lucide-react'
 
+import { DeleteBoardDialog } from '@/app/(platform)/(dashboard)/board/[boardId]/_components/delete-board-dialog'
 import { Button } from '@/components/ui/button'
 import {
   Popover,
@@ -9,7 +10,6 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from '@/components/ui/popover'
-import { DialogDeleteBoard } from '@/components/dialog'
 
 interface BoardActionsProps {
   id: string
@@ -46,7 +46,7 @@ export function BoardActions({ id }: BoardActionsProps) {
             </Button>
           </PopoverClose>
         </div>
-        <DialogDeleteBoard id={id}>
+        <DeleteBoardDialog id={id}>
           <Button
             variant="ghost"
             onClick={() => {}}
@@ -54,7 +54,7 @@ export function BoardActions({ id }: BoardActionsProps) {
           >
             Deletar este quadro
           </Button>
-        </DialogDeleteBoard>
+        </DeleteBoardDialog>
       </PopoverContent>
     </Popover>
   )
