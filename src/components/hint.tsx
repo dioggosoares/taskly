@@ -11,6 +11,7 @@ interface HintProps {
   description: string
   side?: 'left' | 'right' | 'top' | 'bottom'
   sideOffset?: number
+  asChild?: boolean
 }
 
 export function Hint({
@@ -18,11 +19,12 @@ export function Hint({
   description,
   side = 'bottom',
   sideOffset = 0,
+  asChild,
 }: HintProps) {
   return (
     <TooltipProvider>
       <Tooltip delayDuration={0}>
-        <TooltipTrigger>{children}</TooltipTrigger>
+        <TooltipTrigger asChild={asChild}>{children}</TooltipTrigger>
         <TooltipContent
           sideOffset={sideOffset}
           side={side}
