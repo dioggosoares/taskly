@@ -100,12 +100,12 @@ body,
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #ececec;
+  background: #9333ea40;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #707070;
+  background: #c084fc;
   border-radius: 1rem;
 }
 

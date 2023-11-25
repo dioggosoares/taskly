@@ -6,11 +6,14 @@ export enum STORAGE_KEYS {
 
 export enum FEEDBACK_MESSAGES {
   // FEEDBACK KEYS
-  UNAUTHORIZED = 'Não autorizado',
+  UNAUTHORIZED = 'Não autorizado.',
   BOARD_CREATED = 'Quadro criado!',
-  ERROR_CREATED_BOARD = 'Falha ao CRIAR o quadro',
-  ERROR_UPDATED_BOARD = 'Falha ao ATUALIZAR o quadro',
-  ERROR_DELETE_BOARD = 'Falha ao DELETAR o quadro',
+  ERROR_CREATED_BOARD = 'Falha ao CRIAR o quadro.',
+  ERROR_CREATED_LIST = 'Falha ao CRIAR a lista.',
+  ERROR_UPDATED_BOARD = 'Falha ao ATUALIZAR o quadro.',
+  ERROR_UPDATED_LIST = 'Falha ao ATUALIZAR a lista.',
+  ERROR_DELETE_BOARD = 'Falha ao DELETAR o quadro.',
+  NOT_FOUND_BOARD = 'Quadro não encontrato.',
   MISSING_FIELDS_CREATED_BOARD = 'Estão faltando campos. Falha ao CRIAR quadro.',
   FAILED_OBTAINING_IMAGES = 'Falha ao obter imagens.',
 }
