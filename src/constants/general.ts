@@ -8,8 +8,9 @@ export enum FEEDBACK_MESSAGES {
   // FEEDBACK KEYS
   UNAUTHORIZED = 'Não autorizado',
   BOARD_CREATED = 'Quadro criado!',
-  ERROR_CREATED_BOARD = 'Falha ao criar o quadro',
-  ERROR_UPDATED_BOARD = 'Falha ao atualizar o quadro',
-  MISSING_FIELDS_CREATED_BOARD = 'Estão faltando campos. Falha ao criar quadro.',
-  FAILED_OBTAINING_IMAGES = 'Falha ao obter imagens do Unsplash.',
+  ERROR_CREATED_BOARD = 'Falha ao CRIAR o quadro',
+  ERROR_UPDATED_BOARD = 'Falha ao ATUALIZAR o quadro',
+  ERROR_DELETE_BOARD = 'Falha ao DELETAR o quadro',
+  MISSING_FIELDS_CREATED_BOARD = 'Estão faltando campos. Falha ao CRIAR quadro.',
+  FAILED_OBTAINING_IMAGES = 'Falha ao obter imagens.',
 }

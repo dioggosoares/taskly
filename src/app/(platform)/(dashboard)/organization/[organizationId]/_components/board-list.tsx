@@ -42,7 +42,7 @@ export async function BoardList() {
           >
             <div className="absolute inset-0 bg-black/30 transition group-hover:bg-black/40" />
             <div className="flex w-full items-center justify-between">
-              {board.title.length > 15 ? (
+              {board.title.length > 12 ? (
                 <Hint sideOffset={0} description={board.title}>
                   <p className="relative text-xs font-semibold text-zinc-50 md:text-sm">
                     {truncate(board.title, 12)}

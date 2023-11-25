@@ -1,11 +1,17 @@
 import { SlidersHorizontal } from 'lucide-react'
+import { Board } from '@prisma/client'
 import Image from 'next/image'
 
 import { Hint } from '@/components/hint'
 import { Button } from '@/components/ui/button'
 import { BoardViewMenu } from './board-view-menu'
+import { BoardActions } from './board-actions'
 
-export function BoardHeader() {
+interface BoardHeaderProps {
+  board: Board
+}
+
+export function BoardHeader({ board }: BoardHeaderProps) {
   return (
     <div className="flex w-full items-center justify-between gap-4">
       <div className="flex w-full items-center gap-4">
@@ -65,10 +71,12 @@ export function BoardHeader() {
           Filtros
           <SlidersHorizontal className="h-4 w-4" />
         </Button>
+
         <BoardViewMenu />
+
         <Hint
           description="Administrador do Quadro"
-          side="left"
+          side="bottom"
           sideOffset={10}
           asChild
         >
@@ -84,6 +92,8 @@ export function BoardHeader() {
             />
           </button>
         </Hint>
+
+        <BoardActions id={board.id} />
       </div>
     </div>
   )

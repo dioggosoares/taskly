@@ -31,7 +31,7 @@ export default async function Board({ params }: BoardProps) {
   return (
     <div className="flex flex-1 flex-col gap-9 p-8">
       <CoverBoard board={board} />
-      <BoardHeader />
+      <BoardHeader board={board} />
     </div>
   )
 }
