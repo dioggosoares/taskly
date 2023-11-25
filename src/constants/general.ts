@@ -5,9 +5,11 @@ export enum STORAGE_KEYS {
 }
 
 export enum FEEDBACK_MESSAGES {
-  // AUTH KEYS
+  // FEEDBACK KEYS
+  UNAUTHORIZED = 'Não autorizado',
   BOARD_CREATED = 'Quadro criado!',
   ERROR_CREATED_BOARD = 'Falha ao criar o quadro',
+  ERROR_UPDATED_BOARD = 'Falha ao atualizar o quadro',
   MISSING_FIELDS_CREATED_BOARD = 'Estão faltando campos. Falha ao criar quadro.',
   FAILED_OBTAINING_IMAGES = 'Falha ao obter imagens do Unsplash.',
 }

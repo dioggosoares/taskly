@@ -68,7 +68,7 @@ export function Sidebar({
   }
 
   return (
-    <>
+    <aside>
       <div className="mb-1 flex flex-col gap-2">
         <FormPopover sideOffset={18}>
           <Button
@@ -112,6 +112,6 @@ export function Sidebar({
           )
         })}
       </Accordion>
-    </>
+    </aside>
   )
 }

@@ -14,7 +14,7 @@ async function handler(data: InputType): Promise<ReturnType> {
 
   if (!userId || !orgId) {
     return {
-      error: 'Não Autorizado',
+      error: FEEDBACK_MESSAGES.UNAUTHORIZED,
     }
   }
 
