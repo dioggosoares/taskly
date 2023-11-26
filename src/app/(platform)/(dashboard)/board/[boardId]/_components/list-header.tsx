@@ -12,9 +12,10 @@ import { ListActions } from './list-actions'
 
 interface ListItemProps {
   data: List
+  onAddCard: () => void
 }
 
-export function ListHeader({ data }: ListItemProps) {
+export function ListHeader({ data, onAddCard }: ListItemProps) {
   const [title, setTitle] = useState(data.title)
   const [isEditing, setIsEditing] = useState(false)
 
@@ -102,7 +103,7 @@ export function ListHeader({ data }: ListItemProps) {
           {title}
         </div>
       )}
-      <ListActions onAddCard={() => {}} data={data} />
+      <ListActions onAddCard={onAddCard} data={data} />
     </div>
   )
 }
