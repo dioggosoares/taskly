@@ -108,7 +108,7 @@ export function ListForm() {
         text-sm font-medium transition hover:bg-white/50"
       >
         <Plus className="mr-2 h-4 w-4" />
-        Adicione uma lista
+        Adicionar uma lista
       </button>
     </ListWrapper>
   )

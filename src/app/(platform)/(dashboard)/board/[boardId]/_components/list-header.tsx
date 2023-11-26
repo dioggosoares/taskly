@@ -2,15 +2,16 @@
 
 import { useEventListener, useOnClickOutside } from 'usehooks-ts'
 import { useState, useRef, ElementRef } from 'react'
+import { List } from '@prisma/client'
 import { toast } from 'sonner'
 
-import { ListWithCards } from '@/@types'
 import { FormInput } from '@/components/form/form-input'
-import { useAction } from '@/hooks/useAction'
 import { updateList } from '@/actions/update-list'
+import { useAction } from '@/hooks/useAction'
+import { ListActions } from './list-actions'
 
 interface ListItemProps {
-  data: ListWithCards
+  data: List
 }
 
 export function ListHeader({ data }: ListItemProps) {
@@ -101,6 +102,7 @@ export function ListHeader({ data }: ListItemProps) {
           {title}
         </div>
       )}
+      <ListActions onAddCard={() => {}} data={data} />
     </div>
   )
 }

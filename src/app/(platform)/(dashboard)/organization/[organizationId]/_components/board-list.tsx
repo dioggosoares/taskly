@@ -1,4 +1,5 @@
 import { HelpCircle, User2 } from 'lucide-react'
+import { redirect } from 'next/navigation'
 import { auth } from '@clerk/nextjs'
 import Link from 'next/link'
 import dayjs from 'dayjs'
@@ -6,9 +7,9 @@ import dayjs from 'dayjs'
 import { db } from '@/lib/db'
 import { Hint } from '@/components/hint'
 import { FormPopover } from '@/components/form/form-popover'
-import { redirect } from 'next/navigation'
-import { truncate } from '@/helpers/truncate'
 import { Skeleton } from '@/components/ui/skeleton'
+import { truncate } from '@/helpers/truncate'
+import { LikeButton } from './like-button'
 
 export async function BoardList() {
   const { orgId } = auth()
@@ -36,26 +37,32 @@ export async function BoardList() {
           <Link
             key={board.id}
             href={`/board/${board.id}`}
-            className="group relative aspect-video h-full w-full overflow-hidden
+            className="group relative flex aspect-video h-full w-full overflow-hidden
             rounded-sm bg-neutral-200/70 bg-cover bg-center bg-no-repeat p-2"
             style={{ backgroundImage: `url(${board.imageThumbUrl})` }}
           >
             <div className="absolute inset-0 bg-black/30 transition group-hover:bg-black/40" />
-            <div className="flex w-full items-center justify-between">
-              {board.title.length > 12 ? (
-                <Hint sideOffset={0} description={board.title}>
-                  <p className="relative text-xs font-semibold text-zinc-50 md:text-sm">
-                    {truncate(board.title, 12)}
-                  </p>
-                </Hint>
-              ) : (
-                <p className="relative text-xs font-semibold text-zinc-50 md:text-sm">
-                  {truncate(board.title, 12)}
-                </p>
-              )}
-              <time className="relative text-[.625rem] font-medium text-zinc-200">
-                {dayjs().from(board.createdAt)}
-              </time>
+            <div className="flex w-full flex-col">
+              <div className="flex w-full flex-1 items-start">
+                <header className="z-50 flex w-full items-center justify-between">
+                  {board.title.length > 12 ? (
+                    <Hint sideOffset={0} description={board.title}>
+                      <p className="relative text-xs font-semibold text-zinc-50 md:text-sm">
+                        {truncate(board.title, 12)}
+                      </p>
+                    </Hint>
+                  ) : (
+                    <p className="relative text-xs font-semibold text-zinc-50 md:text-sm">
+                      {truncate(board.title, 12)}
+                    </p>
+                  )}
+                  <time className="relative text-[.625rem] font-medium text-zinc-200">
+                    {dayjs().from(board.createdAt)}
+                  </time>
+                </header>
+              </div>
+
+              <LikeButton />
             </div>
           </Link>
         ))}

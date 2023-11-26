@@ -35,7 +35,7 @@ export function BoardActions({ id }: BoardActionsProps) {
       >
         <div className="pb-4">
           <h3 className="text-center text-sm font-semibold text-neutral-600">
-            Ações do quadro
+            Ações do Quadro
           </h3>
           <PopoverClose asChild>
             <Button
