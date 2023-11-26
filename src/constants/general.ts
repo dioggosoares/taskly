@@ -8,8 +8,10 @@ export enum FEEDBACK_MESSAGES {
   // FEEDBACK KEYS
   UNAUTHORIZED = 'Não autorizado.',
   BOARD_CREATED = 'Quadro criado!',
+  COVER_UPDATED = 'Capa atualizada!',
   ERROR_CREATED_BOARD = 'Falha ao CRIAR o quadro.',
   ERROR_CREATED_LIST = 'Falha ao CRIAR a lista.',
+  ERROR_UPDATED_COVER = 'Falha ao ATUALIZAR a capa',
   ERROR_COPY_LIST = 'Falha ao COPIAR a lista.',
   ERROR_UPDATED_BOARD = 'Falha ao ATUALIZAR o quadro.',
   ERROR_UPDATED_LIST = 'Falha ao ATUALIZAR a lista.',

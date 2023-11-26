@@ -3,6 +3,7 @@ import { Board } from '@prisma/client'
 import Link from 'next/link'
 
 import { BoardInfo } from './board-info'
+import { FormUpdateCoverPopover } from '@/components/form/form-update-cover-popover'
 
 interface CoverBoardProps {
   board: Board
@@ -19,12 +20,18 @@ export async function CoverBoard({ board }: CoverBoardProps) {
     >
       <div className="flex w-full flex-col justify-between">
         <div className="flex w-full flex-1 justify-end p-4">
-          <button
-            className="flex h-10 w-10 items-center justify-center rounded-full
-            bg-neutral-50 transition-opacity duration-150 ease-linear hover:opacity-75"
+          <FormUpdateCoverPopover
+            sideOffset={10}
+            side="right"
+            boardId={board.id}
           >
-            <PencilLine className="h-6 w-6 text-neutral-900" />
-          </button>
+            <button
+              className="flex h-10 w-10 items-center justify-center rounded-full
+            bg-neutral-50 transition-opacity duration-150 ease-linear hover:opacity-75"
+            >
+              <PencilLine className="h-6 w-6 text-neutral-900" />
+            </button>
+          </FormUpdateCoverPopover>
         </div>
 
         <div className="flex p-6">
