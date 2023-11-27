@@ -1,12 +1,16 @@
 'use client'
 
 import { Plus, X } from 'lucide-react'
-import { ElementRef, forwardRef, useRef } from 'react'
+import { useParams } from 'next/navigation'
+import { ElementRef, KeyboardEventHandler, forwardRef, useRef } from 'react'
+import { useEventListener, useOnClickOutside } from 'usehooks-ts'
 
 import { FormSubmit } from '@/components/form/form-submit'
 import { FormTextarea } from '@/components/form/form-textarea'
 import { Button } from '@/components/ui/button'
-import { useEventListener, useOnClickOutside } from 'usehooks-ts'
+import { createCard } from '@/actions/create-card'
+import { useAction } from '@/hooks/useAction'
+import { toast } from 'sonner'
 
 interface CardFormProps {
   listId: string
@@ -17,7 +21,18 @@ interface CardFormProps {
 
 export const CardForm = forwardRef<HTMLTextAreaElement, CardFormProps>(
   ({ listId, isEditing, enableEditing, disableEditing }, ref) => {
+    const params = useParams()
     const formRef = useRef<ElementRef<'form'>>(null)
+
+    const { execute, fieldErrors } = useAction(createCard, {
+      onSuccess: (data) => {
+        toast.success(`Cartão "${data.title}" criado!`)
+        formRef.current?.reset()
+      },
+      onError: (error) => {
+        toast.error(error)
+      },
+    })
 
     function onKeydown(e: KeyboardEvent) {
       if (e.key === 'Escape') {
@@ -28,20 +43,42 @@ export const CardForm = forwardRef<HTMLTextAreaElement, CardFormProps>(
     useEventListener('keydown', onKeydown)
     useOnClickOutside(formRef, disableEditing)
 
+    const onTextAreakeyDown: KeyboardEventHandler<HTMLTextAreaElement> = (
+      e,
+    ) => {
+      if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault()
+        formRef.current?.requestSubmit()
+      }
+    }
+
+    const onSubmit = (formData: FormData) => {
+      const title = formData.get('title') as string
+      const listId = formData.get('listId') as string
+      const boardId = params.boardId as string
+
+      execute({ title, boardId, listId })
+    }
+
     if (isEditing) {
       return (
-        <form ref={formRef} className="m-1 space-y-4 px-1 py-0.5">
+        <form
+          ref={formRef}
+          action={onSubmit}
+          className="m-1 space-y-4 px-1 py-0.5"
+        >
           <FormTextarea
             id="title"
-            onKeyDown={() => {}}
+            onKeyDown={onTextAreakeyDown}
             ref={ref}
             placeholder="Escreva um título para esse cartão..."
+            errors={fieldErrors}
           />
 
           <input hidden id="listId" name="listId" value={listId} readOnly />
 
           <div className="flex items-center gap-x-1">
-            <FormSubmit>Adicionar cartão</FormSubmit>
+            <FormSubmit className="min-w-[8.5rem]">Adicionar cartão</FormSubmit>
             <Button
               type="button"
               onClick={disableEditing}
