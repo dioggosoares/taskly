@@ -85,8 +85,14 @@ export function ListActions({ data, onAddCard }: ListActionsProps) {
         </Button>
 
         <form action={onCopy} className="mb-2">
-          <input hidden name="id" id="id" value={data.id} />
-          <input hidden name="boardId" id="boardId" value={data.boardId} />
+          <input hidden name="id" id="id" value={data.id} readOnly />
+          <input
+            hidden
+            name="boardId"
+            id="boardId"
+            value={data.boardId}
+            readOnly
+          />
 
           <FormSubmitList
             variant="ghost"

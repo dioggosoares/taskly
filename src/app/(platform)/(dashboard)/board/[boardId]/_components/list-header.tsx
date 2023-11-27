@@ -79,8 +79,14 @@ export function ListHeader({ data, onAddCard }: ListItemProps) {
           ref={formRef}
           className="flex-1 px-[.125rem]"
         >
-          <input hidden id="id" name="id" value={data.id} />
-          <input hidden id="boardId" name="boardId" value={data.boardId} />
+          <input hidden id="id" name="id" value={data.id} readOnly />
+          <input
+            hidden
+            id="boardId"
+            name="boardId"
+            value={data.boardId}
+            readOnly
+          />
 
           <FormInput
             ref={inputRef}

@@ -51,8 +51,14 @@ export function DeleteListDialog({ children, data }: DeleteListDialogProps) {
           <h3 className="space-y-9">
             Essa ação é irreversível. Deseja mesmo deletar essa lista?
           </h3>
-          <input hidden name="id" id="id" value={data.id} />
-          <input hidden name="boardId" id="boardId" value={data.boardId} />
+          <input hidden name="id" id="id" value={data.id} readOnly />
+          <input
+            hidden
+            name="boardId"
+            id="boardId"
+            value={data.boardId}
+            readOnly
+          />
           <div className="flex w-full justify-end">
             <div className="flex w-max gap-2">
               <Button

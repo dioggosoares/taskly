@@ -61,9 +61,7 @@ export function BoardHeader({ board }: BoardHeaderProps) {
             />
           </button>
         </div>
-        <span className="hidden text-xs font-medium text-neutral-600 md:block">
-          Membros desse quadro
-        </span>
+        <span className="hidden font-medium text-neutral-600 md:block">+5</span>
       </div>
 
       <div className="flex items-center justify-end gap-5">

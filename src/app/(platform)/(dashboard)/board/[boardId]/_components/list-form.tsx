@@ -79,7 +79,7 @@ export function ListForm() {
             className="h-7 border-transparent px-2 py-1 text-sm
             font-medium transition hover:border-input focus:border-input"
           />
-          <input hidden value={boardId} name="boardId" />
+          <input hidden value={boardId} name="boardId" readOnly />
 
           <div className="flex items-center gap-x-1">
             <FormSubmit variant="default" className="w-[7.4375rem]">

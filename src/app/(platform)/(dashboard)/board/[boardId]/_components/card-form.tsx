@@ -30,7 +30,7 @@ export const CardForm = forwardRef<HTMLTextAreaElement, CardFormProps>(
 
     if (isEditing) {
       return (
-        <form className="m-1 space-y-4 px-1 py-0.5">
+        <form ref={formRef} className="m-1 space-y-4 px-1 py-0.5">
           <FormTextarea
             id="title"
             onKeyDown={() => {}}
@@ -38,7 +38,7 @@ export const CardForm = forwardRef<HTMLTextAreaElement, CardFormProps>(
             placeholder="Escreva um título para esse cartão..."
           />
 
-          <input hidden id="listId" name="listId" value={listId} />
+          <input hidden id="listId" name="listId" value={listId} readOnly />
 
           <div className="flex items-center gap-x-1">
             <FormSubmit>Adicionar cartão</FormSubmit>

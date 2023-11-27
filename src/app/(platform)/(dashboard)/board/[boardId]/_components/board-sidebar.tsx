@@ -10,7 +10,7 @@ interface BoardSidebarProps {
 }
 
 export function BoardSidebar({ board }: BoardSidebarProps) {
-  console.log(board.id)
+  // TODO: pegar todos os boards existentes e mostrar no accordion
   return (
     <aside className="flex w-full flex-1 flex-col gap-2 bg-white pb-6">
       <OrgInfo />
