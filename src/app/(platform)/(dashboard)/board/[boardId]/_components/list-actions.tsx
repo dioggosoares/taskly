@@ -17,7 +17,7 @@ import { Separator } from '@/components/ui/separator'
 import { useAction } from '@/hooks/useAction'
 import { copyList } from '@/actions/copy-list'
 
-import { DeleteListDialog } from './delete-list-dialog'
+import { DeleteListModal } from '@/components/modals/delete-list-modal'
 
 interface ListActionsProps {
   onAddCard: () => void
@@ -105,7 +105,7 @@ export function ListActions({ data, onAddCard }: ListActionsProps) {
 
         <Separator />
 
-        <DeleteListDialog data={data}>
+        <DeleteListModal data={data}>
           <Button
             variant="ghost"
             onClick={() => {}}
@@ -114,7 +114,7 @@ export function ListActions({ data, onAddCard }: ListActionsProps) {
           >
             Deletar esta lista
           </Button>
-        </DeleteListDialog>
+        </DeleteListModal>
       </PopoverContent>
     </Popover>
   )

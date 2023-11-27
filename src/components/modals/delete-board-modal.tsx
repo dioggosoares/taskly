@@ -7,18 +7,18 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog'
-import { Button } from '../../../../../../components/ui/button'
+import { Button } from '../ui/button'
 import { useAction } from '@/hooks/useAction'
 import { deleteBoard } from '@/actions/delete-board'
 import { toast } from 'sonner'
-import { FormSubmit } from '../../../../../../components/form/form-submit'
+import { FormSubmit } from '../form/form-submit'
 
-interface DeleteBoardDialogProps {
+interface DeleteBoardModalProps {
   id: string
   children: ReactNode
 }
 
-export function DeleteBoardDialog({ id, children }: DeleteBoardDialogProps) {
+export function DeleteBoardModal({ id, children }: DeleteBoardModalProps) {
   const [open, setOpen] = useState(false)
   const { execute } = useAction(deleteBoard, {
     onError: (error) => {

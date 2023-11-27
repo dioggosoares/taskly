@@ -52,7 +52,7 @@ export default async function Board({ params }: BoardProps) {
     <div className="flex flex-1 flex-col gap-9 p-8">
       <CoverBoard board={board} />
       <BoardHeader board={board} />
-      <div className="flex h-full overflow-x-auto p-4">
+      <div className="flex h-full overflow-x-auto p-4 md:max-w-[620px] lg:max-w-[720px]  xl:max-w-[1052px] 2xl:max-w-[1536px]">
         <ListContainer boardId={boardId} data={lists} />
       </div>
     </div>

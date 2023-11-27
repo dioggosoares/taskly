@@ -14,12 +14,12 @@ import { deleteList } from '@/actions/delete-list'
 import { Button } from '@/components//ui/button'
 import { FormSubmit } from '@/components/form/form-submit'
 
-interface DeleteListDialogProps {
+interface DeleteListModalProps {
   data: List
   children: ReactNode
 }
 
-export function DeleteListDialog({ children, data }: DeleteListDialogProps) {
+export function DeleteListModal({ children, data }: DeleteListModalProps) {
   const closeRef = useRef<ElementRef<'button'>>(null)
 
   const [open, setOpen] = useState(false)
