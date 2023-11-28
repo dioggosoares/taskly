@@ -100,16 +100,16 @@ body,
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #9333ea40;
+  background: #d4d4d4;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #c084fc;
+  background: #71717a;
   border-radius: 1rem;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #707070;
+  background: #71717a;
 }
