@@ -47,13 +47,22 @@ export default async function BoardLayout({
     },
   })
 
+  const boards = await db.board.findMany({
+    where: {
+      orgId,
+    },
+    orderBy: {
+      createdAt: 'desc',
+    },
+  })
+
   if (!board) notFound()
 
   return (
     <div className="mx-auto h-full bg-purple-300/10">
       <main className="relative mx-auto flex h-full pt-14">
         <div className="hidden w-80 flex-col lg:flex">
-          <BoardSidebar board={board} />
+          <BoardSidebar data={boards} />
         </div>
         {children}
       </main>
