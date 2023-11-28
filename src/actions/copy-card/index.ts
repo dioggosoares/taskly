@@ -2,10 +2,10 @@
 
 import { auth } from '@clerk/nextjs'
 import { revalidatePath } from 'next/cache'
-// import { ACTION, ENTITY_TYPE } from '@prisma/client'
+import { ACTION, ENTITY_TYPE } from '@prisma/client'
 
 import { db } from '@/lib/db'
-// import { createAuditLog } from '@/lib/create-audit-log'
+import { createAuditLog } from '@/lib/create-audit-log'
 import { createSafeAction } from '@/lib/create-safe-action'
 import { FEEDBACK_MESSAGES } from '@/constants/general'
 
@@ -59,12 +59,12 @@ const handler = async (data: InputType): Promise<ReturnType> => {
       },
     })
 
-    // await createAuditLog({
-    //   entityTitle: list.title,
-    //   entityId: list.id,
-    //   entityType: ENTITY_TYPE.LIST,
-    //   action: ACTION.CREATE,
-    // })
+    await createAuditLog({
+      entityTitle: card.title,
+      entityId: card.id,
+      entityType: ENTITY_TYPE.CARD,
+      action: ACTION.CREATE,
+    })
   } catch (error) {
     return {
       error: FEEDBACK_MESSAGES.ERROR_COPY_CARD,

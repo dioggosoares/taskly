@@ -2,6 +2,7 @@ import { auth, currentUser } from '@clerk/nextjs'
 import { ACTION, ENTITY_TYPE } from '@prisma/client'
 
 import { db } from '@/lib/db'
+import { FEEDBACK_MESSAGES } from '@/constants/general'
 
 interface Props {
   entityId: string
@@ -16,7 +17,7 @@ export const createAuditLog = async (props: Props) => {
     const user = await currentUser()
 
     if (!user || !orgId) {
-      throw new Error('User not found!')
+      throw new Error(FEEDBACK_MESSAGES.NOT_FOUND_USER)
     }
 
     const { entityId, entityType, entityTitle, action } = props

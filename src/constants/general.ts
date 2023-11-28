@@ -27,6 +27,7 @@ export enum FEEDBACK_MESSAGES {
   NOT_FOUND_BOARD = 'Quadro não encontrado.',
   NOT_FOUND_LIST = 'Lista não encontrada.',
   NOT_FOUND_CARD = 'Cartão não encontrada.',
+  NOT_FOUND_USER = 'Usuário não encontrado.',
   MISSING_FIELDS_CREATED_BOARD = 'Estão faltando campos. Falha ao CRIAR quadro.',
   FAILED_OBTAINING_IMAGES = 'Falha ao obter imagens.',
   TITLE_REQUIRED = 'O título é obrigatório.',

@@ -2,11 +2,11 @@
 
 import { auth } from '@clerk/nextjs'
 import { revalidatePath } from 'next/cache'
-// import { ACTION, ENTITY_TYPE } from '@prisma/client'
+import { ACTION, ENTITY_TYPE } from '@prisma/client'
 
 import { db } from '@/lib/db'
 import { createSafeAction } from '@/lib/create-safe-action'
-// import { createAuditLog } from '@/lib/create-audit-log'
+import { createAuditLog } from '@/lib/create-audit-log'
 
 import { UpdateCard } from './schema'
 import { InputType, ReturnType } from './types'
@@ -39,12 +39,12 @@ const handler = async (data: InputType): Promise<ReturnType> => {
       },
     })
 
-    // await createAuditLog({
-    //   entityTitle: board.title,
-    //   entityId: board.id,
-    //   entityType: ENTITY_TYPE.BOARD,
-    //   action: ACTION.UPDATE,
-    // })
+    await createAuditLog({
+      entityTitle: card.title,
+      entityId: card.id,
+      entityType: ENTITY_TYPE.CARD,
+      action: ACTION.UPDATE,
+    })
   } catch (error) {
     return {
       error: FEEDBACK_MESSAGES.ERROR_UPDATED_CARD,

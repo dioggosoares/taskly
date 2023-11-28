@@ -50,7 +50,7 @@ export function ListActions({ data, onAddCard }: ListActionsProps) {
         <Button
           variant="ghost"
           size="icon"
-          className="h-auto w-auto p-2 hover:bg-neutral-300/50"
+          className="mb-1 h-auto w-auto p-2 hover:bg-neutral-300/50"
         >
           <MoreVertical className="h-4 w-4" />
         </Button>

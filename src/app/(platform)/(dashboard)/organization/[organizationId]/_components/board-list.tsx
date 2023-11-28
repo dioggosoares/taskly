@@ -9,7 +9,7 @@ import { Hint } from '@/components/hint'
 import { FormPopover } from '@/components/form/form-popover'
 import { Skeleton } from '@/components/ui/skeleton'
 import { truncate } from '@/helpers/truncate'
-import { LikeButton } from './like-button'
+import { SocialInfo } from './social-info'
 
 export async function BoardList() {
   const { orgId } = auth()
@@ -62,7 +62,7 @@ export async function BoardList() {
                 </header>
               </div>
 
-              <LikeButton />
+              <SocialInfo board={board} />
             </div>
           </Link>
         ))}

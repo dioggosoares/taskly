@@ -10,7 +10,7 @@ import { ListItem } from './list-item'
 import { reorder } from '@/helpers/reorder'
 import { useAction } from '@/hooks/useAction'
 import { updateListOrder } from '@/actions/update-list-order'
-import { updateCardOrder } from '@/actions/update-list-card'
+import { updateCardOrder } from '@/actions/update-card-order'
 
 interface ListContainerProps {
   data: ListWithCards[]
