@@ -13,13 +13,15 @@ export const UpdateCard = z.object({
         message: FEEDBACK_MESSAGES.DESCRIPTION_SHORT,
       }),
   ),
-  title: z
-    .string({
-      required_error: FEEDBACK_MESSAGES.TITLE_REQUIRED,
-      invalid_type_error: FEEDBACK_MESSAGES.TITLE_REQUIRED,
-    })
-    .min(3, {
-      message: FEEDBACK_MESSAGES.TITLE_SHORT,
-    }),
+  title: z.optional(
+    z
+      .string({
+        required_error: FEEDBACK_MESSAGES.TITLE_REQUIRED,
+        invalid_type_error: FEEDBACK_MESSAGES.TITLE_REQUIRED,
+      })
+      .min(3, {
+        message: FEEDBACK_MESSAGES.TITLE_SHORT,
+      }),
+  ),
   id: z.string(),
 })
