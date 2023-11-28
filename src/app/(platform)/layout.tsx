@@ -1,6 +1,8 @@
 import { ClerkProvider } from '@clerk/nextjs'
 import { ptBR } from '@clerk/localizations'
 import { Toaster } from 'sonner'
+import { ModalProvider } from '@/components/providers/modal-provider'
+import { QueryProvider } from '@/components/providers/query-provider'
 
 export default function PlatformLayout({
   children,
@@ -9,8 +11,11 @@ export default function PlatformLayout({
 }) {
   return (
     <ClerkProvider localization={ptBR}>
-      <Toaster position="bottom-center" />
-      {children}
+      <QueryProvider>
+        <Toaster position="bottom-center" />
+        <ModalProvider />
+        {children}
+      </QueryProvider>
     </ClerkProvider>
   )
 }

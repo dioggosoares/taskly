@@ -7,6 +7,7 @@ export enum STORAGE_KEYS {
 export enum FEEDBACK_MESSAGES {
   // FEEDBACK KEYS
   UNAUTHORIZED = 'Não autorizado.',
+  ERROR_500 = 'Internal Server Error',
   BOARD_CREATED = 'Quadro criado!',
   COVER_UPDATED = 'Capa atualizada!',
   ERROR_CREATED_BOARD = 'Falha ao CRIAR quadro.',
@@ -16,6 +17,7 @@ export enum FEEDBACK_MESSAGES {
   ERROR_COPY_LIST = 'Falha ao COPIAR a lista.',
   ERROR_UPDATED_BOARD = 'Falha ao ATUALIZAR quadro.',
   ERROR_UPDATED_LIST = 'Falha ao ATUALIZAR lista.',
+  ERROR_UPDATED_CARD = 'Falha ao ATUALIZAR cartão.',
   ERROR_DELETE_BOARD = 'Falha ao DELETAR quadro.',
   ERROR_DELETE_LIST = 'Falha ao DELETAR lista.',
   ERROR_REORDER_LIST = 'Falha ao REORDENAR lista.',
@@ -27,4 +29,6 @@ export enum FEEDBACK_MESSAGES {
   FAILED_OBTAINING_IMAGES = 'Falha ao obter imagens.',
   TITLE_REQUIRED = 'O título é obrigatório.',
   TITLE_SHORT = 'O título é muito curto.',
+  DESCRIPTION_REQUIRED = 'Descrição é obrigatória.',
+  DESCRIPTION_SHORT = 'A descrição é muito curta.',
 }

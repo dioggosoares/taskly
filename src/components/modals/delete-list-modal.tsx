@@ -43,7 +43,7 @@ export function DeleteListModal({ children, data }: DeleteListModalProps) {
   return (
     <Dialog open={open} onOpenChange={() => setOpen(!open)}>
       <DialogTrigger asChild>{children}</DialogTrigger>
-      <DialogContent className="flex min-h-[10rem] w-auto flex-col gap-6 xl:max-w-lg">
+      <DialogContent className="flex flex-col gap-6">
         <DialogHeader>
           <DialogTitle>Deletar Lista</DialogTitle>
         </DialogHeader>
