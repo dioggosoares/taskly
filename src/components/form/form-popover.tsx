@@ -14,13 +14,14 @@ import {
 } from '@/components/ui/popover'
 
 import { useAction } from '@/hooks/useAction'
+import { useProModal } from '@/hooks/useProModal'
 import { createBoard } from '@/actions/create-board'
+import { useWindowsDimensions } from '@/hooks/useWindowsDimensions'
 
 import { FormInput } from './form-input'
 import { FormSubmit } from './form-submit'
 import { FormPicker } from './form-picker'
 import { Button } from '../ui/button'
-import { useWindowsDimensions } from '@/hooks/useWindowsDimensions'
 import { FEEDBACK_MESSAGES } from '@/constants/general'
 
 interface FormPopoverProps {
@@ -36,6 +37,7 @@ export function FormPopover({
   side = 'bottom',
   sideOffset = 0,
 }: FormPopoverProps) {
+  const proModal = useProModal()
   const router = useRouter()
   const closeRef = useRef<ElementRef<'button'>>(null)
   const { screenWidth } = useWindowsDimensions()
@@ -53,6 +55,7 @@ export function FormPopover({
     },
     onError: (error) => {
       toast.error(error)
+      proModal.onOpen()
     },
   })
 

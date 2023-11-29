@@ -12,6 +12,7 @@ import { FEEDBACK_MESSAGES } from '@/constants/general'
 import { CreateBoard } from './schema'
 import { InputType, ReturnType } from './types'
 import { incrementAvailableCount, hasAvailableCount } from '@/lib/org-limits'
+import { checkSubscription } from '@/lib/subscription'
 
 async function handler(data: InputType): Promise<ReturnType> {
   const { userId, orgId } = auth()
@@ -23,8 +24,9 @@ async function handler(data: InputType): Promise<ReturnType> {
   }
 
   const canCreate = await hasAvailableCount()
+  const isPro = await checkSubscription()
 
-  if (!canCreate) {
+  if (!canCreate && !isPro) {
     return {
       error: FEEDBACK_MESSAGES.LIMIT_BOARD_REACHED,
     }
@@ -62,7 +64,7 @@ async function handler(data: InputType): Promise<ReturnType> {
       },
     })
 
-    await incrementAvailableCount()
+    if (!isPro) await incrementAvailableCount()
 
     await createAuditLog({
       entityTitle: board.title,
