@@ -1,7 +1,7 @@
 export enum STORAGE_KEYS {
   // AUTH KEYS
-  EXPANDED_ACCORDION_SIDEBAR = '@TASKLY:sidebar-state',
-  EXPANDED_ACCORDION_MOBILE_SIDEBAR = '@TASKLY:mobile-sidebar-state',
+  EXPANDED_ACCORDION_SIDEBAR = '@TASKRISE:sidebar-state',
+  EXPANDED_ACCORDION_MOBILE_SIDEBAR = '@TASKRISE:mobile-sidebar-state',
 }
 
 export enum FEEDBACK_MESSAGES {
@@ -32,6 +32,7 @@ export enum FEEDBACK_MESSAGES {
   FAILED_OBTAINING_IMAGES = 'Falha ao obter imagens.',
   TITLE_REQUIRED = 'O título é obrigatório.',
   TITLE_SHORT = 'O título é muito curto.',
+  LIMIT_BOARD_REACHED = 'Você atingiu seu limite de quadros gratuitos. Faça um UPGRADE para criar mais.',
   DESCRIPTION_REQUIRED = 'Descrição é obrigatória.',
   DESCRIPTION_SHORT = 'A descrição é muito curta.',
 }

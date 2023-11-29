@@ -4,11 +4,16 @@ import { auth } from '@clerk/nextjs'
 import Link from 'next/link'
 import dayjs from 'dayjs'
 
+import { MAX_FREE_BOARDS } from '@/constants/boards'
+
 import { db } from '@/lib/db'
+import { getAvailableCount } from '@/lib/org-limits'
 import { Hint } from '@/components/hint'
 import { FormPopover } from '@/components/form/form-popover'
 import { Skeleton } from '@/components/ui/skeleton'
 import { truncate } from '@/helpers/truncate'
+import { SelectViewFilter } from '@/components/select/select-view-filter'
+
 import { SocialInfo } from './social-info'
 
 export async function BoardList() {
@@ -25,11 +30,17 @@ export async function BoardList() {
     },
   })
 
+  const availableCount = await getAvailableCount()
+
   return (
     <div className="space-y-4">
-      <div className="flex items-center text-lg font-semibold text-neutral-700">
-        <User2 className="mr-2 h-6 w-6" />
-        Seus quadros
+      <div className="flex items-center justify-between text-lg font-semibold text-neutral-700">
+        <div className="flex items-center">
+          <User2 className="mr-2 h-6 w-6" />
+          Seus quadros
+        </div>
+
+        <SelectViewFilter />
       </div>
 
       <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
@@ -73,7 +84,9 @@ export async function BoardList() {
             justify-center gap-y-1 rounded-sm bg-neutral-200/70 transition hover:opacity-75"
           >
             <p className="text-sm text-neutral-500">Criar novo quadro</p>
-            <span className="text-xs">5 restantes</span>
+            <span className="text-xs">{`${
+              MAX_FREE_BOARDS - availableCount
+            } restantes`}</span>
             <Hint
               sideOffset={45}
               description={`

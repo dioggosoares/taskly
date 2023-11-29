@@ -11,6 +11,7 @@ import { FEEDBACK_MESSAGES } from '@/constants/general'
 
 import { CreateBoard } from './schema'
 import { InputType, ReturnType } from './types'
+import { incrementAvailableCount, hasAvailableCount } from '@/lib/org-limits'
 
 async function handler(data: InputType): Promise<ReturnType> {
   const { userId, orgId } = auth()
@@ -18,6 +19,14 @@ async function handler(data: InputType): Promise<ReturnType> {
   if (!userId || !orgId) {
     return {
       error: FEEDBACK_MESSAGES.UNAUTHORIZED,
+    }
+  }
+
+  const canCreate = await hasAvailableCount()
+
+  if (!canCreate) {
+    return {
+      error: FEEDBACK_MESSAGES.LIMIT_BOARD_REACHED,
     }
   }
 
@@ -52,6 +61,8 @@ async function handler(data: InputType): Promise<ReturnType> {
         imageLinkHTML,
       },
     })
+
+    await incrementAvailableCount()
 
     await createAuditLog({
       entityTitle: board.title,

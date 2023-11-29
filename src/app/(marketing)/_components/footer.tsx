@@ -15,10 +15,10 @@ export function Footer() {
           md:w-auto"
         >
           <Button size="sm" variant="ghost">
-            Privacy Policy
+            Política de Privacidade
           </Button>
           <Button size="sm" variant="ghost">
-            Terms of Service
+            Termos de Serviço
           </Button>
         </div>
       </div>

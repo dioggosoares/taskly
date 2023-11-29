@@ -19,31 +19,33 @@ export function Info({ isPro }: InfoProps) {
   }
 
   return (
-    <div className="flex items-center gap-x-4">
-      <div className="relative h-[3.75rem] w-[3.75rem]">
-        <Image
-          fill
-          src={organization!.imageUrl!}
-          alt="Organization"
-          className="rounded-md object-cover"
-        />
-      </div>
-      <div className="space-y-1">
-        <p className="text-xl font-semibold">{organization?.name}</p>
-        <div className="flex items-center text-xs text-muted-foreground">
-          <CreditCard className="mr-1 h-3 w-3" />
-          <div
-            className={cn('rounded-sm bg-purple-100 px-2 py-0.5', {
-              'bg-pink-100': isPro,
-            })}
-          >
-            <span
-              className={cn('font-semibold text-purple-600', {
-                'text-pink-600': isPro,
+    <div className="flex items-center justify-between gap-x-4">
+      <div className="flex items-center gap-x-4">
+        <div className="relative h-[3.75rem] w-[3.75rem]">
+          <Image
+            fill
+            src={organization!.imageUrl!}
+            alt="Organization"
+            className="rounded-md object-cover"
+          />
+        </div>
+        <div className="space-y-1">
+          <p className="text-xl font-semibold">{organization?.name}</p>
+          <div className="flex items-center text-xs text-muted-foreground">
+            <CreditCard className="mr-1 h-3 w-3" />
+            <div
+              className={cn('rounded-sm bg-purple-100 px-2 py-0.5', {
+                'bg-pink-100': isPro,
               })}
             >
-              {isPro ? 'Pro' : 'Free'}
-            </span>
+              <span
+                className={cn('font-semibold text-purple-600', {
+                  'text-pink-600': isPro,
+                })}
+              >
+                {isPro ? 'Pro' : 'Free'}
+              </span>
+            </div>
           </div>
         </div>
       </div>

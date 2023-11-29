@@ -10,7 +10,7 @@ export function Logo() {
           alt="logo"
           width={80}
           height={45}
-          className="w-20"
+          className="w-24"
           priority
         />
       </div>

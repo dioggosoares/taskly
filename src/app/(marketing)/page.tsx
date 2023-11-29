@@ -25,20 +25,20 @@ export default function Marketing() {
         )}
       >
         <div
-          className="mb-4 flex items-center rounded-full border bg-amber-100 p-4
+          className="mb-4 flex items-center rounded-full border bg-sand-200 p-4
           uppercase text-amber-700 shadow-sm"
         >
           <Medal className="mr-2 h-6 w-6" />
-          Nº 1 Task managment
+          Gerenciador de tarefa Nº 1
         </div>
         <h1 className="mb-6 text-center text-3xl text-neutral-800 md:text-6xl">
-          Taskly helps team move
+          Taskrise é organização e conexão.
         </h1>
         <div
           className="w-fit rounded-md bg-gradient-to-r from-fuchsia-600
-          to-pink-600 p-4 text-3xl text-white md:text-6xl"
+          to-pink-600 px-4 pb-4 pt-5 text-3xl text-white md:text-6xl"
         >
-          work forward.
+          + Eficiência.
         </div>
       </div>
       <div
@@ -48,12 +48,12 @@ export default function Marketing() {
           textFont.className,
         )}
       >
-        Collaborate, manage projects, and reach new productivity peaks. From
-        high rises to the home office, the way your team works is unique -
-        accomplish it all with Taskly.
+        Colabore, gerencie projetos e alcance novos picos de produtividade. Dos
+        escritórios ao home office, a forma como sua equipe trabalha é única -
+        realize tudo com Taskrise.
       </div>
       <Button className="mt-6" size="lg" asChild>
-        <Link href="/sign-up">Get Taskly for free</Link>
+        <Link href="/sign-up">Obter Taskrise gratuitamente</Link>
       </Button>
     </div>
   )

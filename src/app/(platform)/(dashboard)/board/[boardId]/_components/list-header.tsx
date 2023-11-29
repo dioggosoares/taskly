@@ -106,15 +106,12 @@ export function ListHeader({ data, onAddCard }: ListItemProps) {
             <button type="submit" hidden />
           </form>
         ) : (
-          <div className="flex w-full items-center">
-            <div className="flex h-2 w-2 rounded-full bg-orange-500" />
-            <div
-              onClick={enabledEditing}
-              className="h-7 w-full cursor-pointer border-transparent px-2.5 py-1
-              text-sm font-medium"
-            >
-              {title}
-            </div>
+          <div
+            onClick={enabledEditing}
+            className="h-7 w-full cursor-pointer border-transparent px-2.5 py-1
+            text-sm font-medium"
+          >
+            {title}
           </div>
         )}
         <ListActions onAddCard={onAddCard} data={data} />

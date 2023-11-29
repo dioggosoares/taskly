@@ -1,4 +1,4 @@
 export const siteConfig = {
-  name: 'Taskly',
+  name: 'Taskrise',
   description: 'Collaborate, manage projects, and reach new productivity peaks',
 }
