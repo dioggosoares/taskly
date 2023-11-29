@@ -1,17 +1,18 @@
 'use client'
 
+import { Check, Loader2, RefreshCw } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { useFormStatus } from 'react-dom'
-import { Check, Loader2 } from 'lucide-react'
 import Image from 'next/image'
+import { toast } from 'sonner'
 
 import { unsplash } from '@/lib/unsplash'
 import { cn } from '@/lib/utils'
 import Link from 'next/link'
 import { defaultImages } from '@/constants/images'
 import { FormErrors } from './form-errors'
-import { toast } from 'sonner'
 import { FEEDBACK_MESSAGES } from '@/constants/general'
+import { Button } from '@/components/ui/button'
 
 interface FormPickerProps {
   id: string
@@ -61,7 +62,14 @@ export function FormPicker({ id, errors }: FormPickerProps) {
 
   return (
     <div className="relative flex flex-col gap-3">
-      <h3 className="text-xs font-semibold text-neutral-700">Escolha a capa</h3>
+      <header className="flex items-center justify-between">
+        <h3 className="text-xs font-semibold text-neutral-700">
+          Escolha a capa
+        </h3>
+        <Button variant="ghost" size="icon" className="h-5 w-5">
+          <RefreshCw className="h-4 w-4" />
+        </Button>
+      </header>
       <div className="mb-2 grid grid-cols-3 gap-2">
         {images.map((image) => (
           <button

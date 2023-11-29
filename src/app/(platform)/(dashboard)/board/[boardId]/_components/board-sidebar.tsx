@@ -66,12 +66,12 @@ export function BoardSidebar({ data }: BoardSideBarProps) {
             </Button>
           </div>
 
-          <div className="flex w-full flex-col gap-3">
+          <div className="scrollbar-hide flex max-h-[24rem] w-full flex-col gap-3 overflow-y-auto py-2 pr-2">
             {data.map((board) => (
               <Link
                 key={board.id}
                 href={`/board/${board.id}`}
-                className="group relative flex aspect-video h-10 w-full overflow-hidden
+                className="group relative flex aspect-video max-h-[2.5rem] min-h-[2.5rem] w-full overflow-hidden
                 rounded-sm bg-neutral-200/70 bg-cover bg-center bg-no-repeat p-2"
                 style={{ backgroundImage: `url(${board.imageThumbUrl})` }}
               >
