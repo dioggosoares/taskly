@@ -6,6 +6,7 @@ import Image from 'next/image'
 
 import { Skeleton } from '@/components/ui/skeleton'
 import { BoardTitleForm } from './board-title-form'
+import { Globe, Lock } from 'lucide-react'
 
 interface BoardInfoProps {
   board: Board
@@ -30,6 +31,12 @@ export function BoardInfo({ board }: BoardInfoProps) {
       </figure>
 
       <BoardTitleForm board={board} />
+
+      {board.public ? (
+        <Globe className="mt-1.5 h-4 w-5 text-neutral-50" />
+      ) : (
+        <Lock className="mt-1.5 h-4 w-5 text-neutral-50" />
+      )}
     </div>
   )
 }

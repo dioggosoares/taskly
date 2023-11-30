@@ -1,6 +1,7 @@
 'use client'
 
 import { MoreVertical, X } from 'lucide-react'
+import { Board } from '@prisma/client'
 
 import { DeleteBoardModal } from '@/components/modals/delete-board-modal'
 import { Button } from '@/components/ui/button'
@@ -12,10 +13,10 @@ import {
 } from '@/components/ui/popover'
 
 interface BoardActionsProps {
-  id: string
+  board: Board
 }
 
-export function BoardActions({ id }: BoardActionsProps) {
+export function BoardActions({ board }: BoardActionsProps) {
   return (
     <Popover>
       <PopoverTrigger asChild>
@@ -46,7 +47,25 @@ export function BoardActions({ id }: BoardActionsProps) {
             </Button>
           </PopoverClose>
         </div>
-        <DeleteBoardModal id={id}>
+        {board.public ? (
+          <Button
+            variant="ghost"
+            onClick={() => {}}
+            className="h-auto w-full justify-start rounded-none p-2 px-5 text-sm font-normal"
+          >
+            Tornar quadro Privado
+          </Button>
+        ) : (
+          <Button
+            variant="ghost"
+            onClick={() => {}}
+            className="h-auto w-full justify-start rounded-none p-2 px-5 text-sm font-normal"
+          >
+            Tornar quadro Público
+          </Button>
+        )}
+
+        <DeleteBoardModal id={board.id}>
           <Button
             variant="ghost"
             onClick={() => {}}

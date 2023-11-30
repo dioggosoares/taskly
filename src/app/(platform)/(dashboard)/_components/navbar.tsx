@@ -1,20 +1,37 @@
-import { OrganizationSwitcher, UserButton } from '@clerk/nextjs'
+import { OrganizationSwitcher, UserButton, auth } from '@clerk/nextjs'
 import { Plus } from 'lucide-react'
 
 import { Logo } from '@/components/logo'
 import { Button } from '@/components/ui/button'
 import { MobileSidebar } from './mobile-sidebar'
 import { FormPopover } from '@/components/form/form-popover'
+import { notFound, redirect } from 'next/navigation'
+import { db } from '@/lib/db'
 
-export function NavBar() {
+export async function NavBar() {
+  const { orgId } = auth()
+
+  if (!orgId) return redirect('/select-org')
+
+  const boards = await db.board.findMany({
+    where: {
+      orgId,
+    },
+    orderBy: {
+      createdAt: 'desc',
+    },
+  })
+
+  if (!boards) notFound()
+
   return (
     <nav
       className="fixed top-0 z-50 flex h-14 w-full items-center border-b bg-white
       px-4 shadow-sm"
     >
-      <MobileSidebar />
+      <MobileSidebar data={boards} />
       <div className="flex items-center gap-x-4">
-        <div className="hidden md:flex">
+        <div className="hidden lg:flex">
           <Logo />
         </div>
         <div className="rounded-sm bg-pink-100 px-2 pb-[.1875rem]">

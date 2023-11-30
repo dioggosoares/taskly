@@ -66,13 +66,16 @@ export function BoardSidebar({ data }: BoardSideBarProps) {
             </Button>
           </div>
 
-          <div className="scrollbar-hide flex max-h-[24rem] w-full flex-col gap-3 overflow-y-auto py-2 pr-2">
+          <div
+            className="scrollbar-hide flex max-h-[20rem] w-full flex-col gap-3 overflow-y-auto py-2 lg:max-h-[10rem]
+            xl:max-h-[20rem] 2xl:max-h-[29rem]"
+          >
             {data.map((board) => (
               <Link
                 key={board.id}
                 href={`/board/${board.id}`}
                 className="group relative flex aspect-video max-h-[2.5rem] min-h-[2.5rem] w-full overflow-hidden
-                rounded-sm bg-neutral-200/70 bg-cover bg-center bg-no-repeat p-2"
+                rounded-sm bg-neutral-200/70 bg-cover bg-center bg-no-repeat px-2 pb-2 pt-2.5"
                 style={{ backgroundImage: `url(${board.imageThumbUrl})` }}
               >
                 <div className="absolute inset-0 bg-black/30 transition group-hover:bg-black/40" />

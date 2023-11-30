@@ -46,19 +46,24 @@ export function ListItem({ data, index }: ListItemProps) {
             <ListHeader data={data} onAddCard={enableEditing} />
             <Droppable droppableId={data.id} type="card">
               {(provided) => (
-                <ol
-                  {...provided.droppableProps}
-                  ref={provided.innerRef}
-                  className={cn(
-                    'mx-1 flex flex-col gap-y-2 px-1 py-0.5',
-                    data.cards.length > 0 && 'mt-2',
-                  )}
+                <div
+                  className="scrollbar-hide max-h-[15.5rem] overflow-y-auto md:max-h-[20.75rem]
+                  lg:max-h-[6.5rem] xl:max-h-[12.5rem] 2xl:max-h-[24.5rem]"
                 >
-                  {data.cards.map((card, index) => (
-                    <CardItem key={card.id} index={index} data={card} />
-                  ))}
-                  {provided.placeholder}
-                </ol>
+                  <ol
+                    {...provided.droppableProps}
+                    ref={provided.innerRef}
+                    className={cn(
+                      'mx-1 flex flex-col gap-y-2 px-1 py-0.5',
+                      data.cards.length > 0 && 'mt-2',
+                    )}
+                  >
+                    {data.cards.map((card, index) => (
+                      <CardItem key={card.id} index={index} data={card} />
+                    ))}
+                    {provided.placeholder}
+                  </ol>
+                </div>
               )}
             </Droppable>
 

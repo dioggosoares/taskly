@@ -93,7 +93,7 @@ export function BoardHeader({ board }: BoardHeaderProps) {
           </button>
         </Hint>
 
-        <BoardActions id={board.id} />
+        <BoardActions board={board} />
       </div>
     </div>
   )
